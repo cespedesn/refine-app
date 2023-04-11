@@ -6,6 +6,8 @@ import { ThemedTitle } from "@refinedev/mui";
 
 import { CredentialResponse } from "../interfaces/google";
 
+import { ibuy } from "../assets";
+
 
 
 // Todo: Update your Google Client ID here
@@ -26,7 +28,7 @@ export const Login: React.FC = () => {
       try {
         window.google.accounts.id.initialize({
           ux_mode: "popup",
-          client_id: GOOGLE_CLIENT_ID,
+          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
           callback: async (res: CredentialResponse) => {
             if (res.credential) {
               login(res);
@@ -75,8 +77,8 @@ export const Login: React.FC = () => {
           Powered by
           <img
             style={{ padding: "0 5px" }}
-            alt="Google"
-            src="https://refine.ams3.cdn.digitaloceanspaces.com/superplate-auth-icons%2Fgoogle.svg"
+            alt="ibuy logo"
+            src={ibuy}
           />
           Google
         </Typography>
